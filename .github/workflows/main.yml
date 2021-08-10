@@ -41,6 +41,7 @@ jobs:
         name: x86_64.AppImage
         path: output/
   build32:
+    if: ${{ false }}  # disable for now
     runs-on: ubuntu-latest
     container: minecraftlinux/ci-xenial:0.0.1
     defaults:
@@ -80,6 +81,7 @@ jobs:
         name: i386.AppImage
         path: output/
   buildbusterappimage:
+    if: ${{ false }}  # disable for now
     runs-on: ubuntu-18.04
     steps:
     - uses: actions/checkout@v2
@@ -98,6 +100,7 @@ jobs:
         name: armhfappimagebuster
         path: output/
   buildarmappimage64:
+    if: ${{ false }}  # disable for now
     runs-on: ubuntu-18.04
     steps:
     - uses: actions/checkout@v2
@@ -116,9 +119,9 @@ jobs:
         name: arm64appimagebuster
         path: output/
   publish:
+    if: ${{ false }}  # disable for now
     runs-on: ubuntu-18.04
     needs: [ build, build32, buildbusterappimage, buildarmappimage64 ]
-    if: ${{ always() }}
     steps:
     - uses: actions/checkout@v2
     - name: Download everything
